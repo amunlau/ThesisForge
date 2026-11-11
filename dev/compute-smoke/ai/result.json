@@ -1,0 +1,62 @@
+{
+  "task": "CPU binary logistic regression smoke test",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "source_sha256": "0ceb589223375ad394fd2dba4e30894a3d55ff918ee3feeb24b4201b11d31aea",
+  "data": "Synthetic, generated locally. Three independent standard normal predictors; positive if x0 + 0.6*x1 - 0.7*x2 - 0.25 + N(0, 0.45^2) > 0.",
+  "splits": {
+    "train": {
+      "rows": 256,
+      "seed": 8901,
+      "positive": 101
+    },
+    "validation": {
+      "rows": 96,
+      "seed": 521,
+      "positive": 44
+    },
+    "test": {
+      "rows": 128,
+      "seed": 3671,
+      "positive": 60
+    }
+  },
+  "training": {
+    "optimizer": "full-batch gradient descent, zero initialization",
+    "learning_rate": 0.24,
+    "selection": "minimum validation mean log loss, earliest epoch on tie",
+    "validation_mean_log_loss": {
+      "5": 0.5663088039463701,
+      "25": 0.3853499348836797,
+      "100": 0.27844842353104554
+    },
+    "selected_epoch": 100
+  },
+  "checkpoint": {
+    "format_tested": "NPZ, float64, disk-backed temporary file",
+    "weights": [
+      1.8218535936508125,
+      1.1734299330935463,
+      -1.258635634181712
+    ],
+    "bias": -0.753938397655785,
+    "all_test_logits_exactly_equal_after_reload": true
+  },
+  "held_out_test": {
+    "baseline": {
+      "predictor": "constant training positive prevalence",
+      "probability": 0.39453125,
+      "rows": 128,
+      "correct": 68,
+      "accuracy": 0.53125,
+      "mean_log_loss": 0.7025201088468723
+    },
+    "model": {
+      "predictor": "reloaded logistic regression",
+      "rows": 128,
+      "correct": 115,
+      "accuracy": 0.8984375,
+      "mean_log_loss": 0.2655690637452726
+    }
+  }
+}

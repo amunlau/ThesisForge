@@ -1,0 +1,56 @@
+# Python environments, caches, and test output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Copies created when this checkout is also used as an installation target
+/.agents/skills/thesisforge/
+/.claude/skills/thesisforge/
+/.agents/thesisforge-backups/
+/.claude/thesisforge-backups/
+/.agents/.thesisforge-stage-*/
+/.claude/.thesisforge-stage-*/
+/.claude/settings.local.json
+/.claude/worktrees/
+/.codex/auth.json
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# Local replays and simulator products (archived examples stay under dev/)
+/runs/
+/replay/
+/dev/noc-smoke/replay/
+/dev/compute-smoke/ai/runs/
+*.vvp
+obj_dir/
+
+# Editor, Office, and LaTeX temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+~$*
+*.tmp
+*.aux
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz

@@ -1,0 +1,2 @@
+# Replay compares generated UTF-8 CSV bytes, including line endings.
+*.csv text eol=lf

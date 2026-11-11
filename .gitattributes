@@ -1,0 +1,4 @@
+# Keep input and source hashes reproducible across Windows and Linux checkouts.
+* text=auto eol=lf
+*.pdf binary
+*.png binary

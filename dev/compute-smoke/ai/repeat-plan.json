@@ -1,0 +1,11 @@
+{
+  "inputs": ["repeat_fit.py", "train_and_reload.py"],
+  "outputs": ["full.npz", "two_features.npz", "metrics.csv", "predictions.csv"],
+  "cases": [
+    {"id": "seed-7101", "argv": ["{python}", "-B", "repeat_fit.py", "--seed", "7101", "--out", "{run_dir}"]},
+    {"id": "seed-7102", "argv": ["{python}", "-B", "repeat_fit.py", "--seed", "7102", "--out", "{run_dir}"]},
+    {"id": "seed-7103", "argv": ["{python}", "-B", "repeat_fit.py", "--seed", "7103", "--out", "{run_dir}"]},
+    {"id": "seed-7104", "argv": ["{python}", "-B", "repeat_fit.py", "--seed", "7104", "--out", "{run_dir}"]},
+    {"id": "seed-7105", "argv": ["{python}", "-B", "repeat_fit.py", "--seed", "7105", "--out", "{run_dir}"]}
+  ]
+}

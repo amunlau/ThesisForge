@@ -1,0 +1,6 @@
+interface:
+  display_name: "ThesisForge"
+  short_description: "自主设计并运行计算实验、分析数据，撰写与修订工程论文，绘制科研图表"
+  default_prompt: "使用 $thesisforge，围绕我的研究主题检索相近工作，自行设计并运行实验。从原始数据分析结果，用适合论文版面的图表呈现主要比较，把有证据支持的贡献和结论写成论文。"
+policy:
+  allow_implicit_invocation: true
