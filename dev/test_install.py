@@ -47,6 +47,16 @@ class InstallTests(unittest.TestCase):
             for name in ("LICENSE", "NOTICE"):
                 self.assertEqual((skill / name).read_bytes(), (ROOT / name).read_bytes())
             self.assertFalse((skill / "dev" / "iteration-log.md").exists())
+            for relative in ("templates/evidence-ledger.json", "scripts/export_word_pdf.ps1",
+                             "scripts/audit_docx.py", "scripts/build_latex.py",
+                             "scripts/audit_manuscript.py", "scripts/research_ledger.py",
+                             "scripts/import_bibliography.py", "scripts/render_diagram.py"):
+                self.assertEqual((skill / relative).read_bytes(), (ROOT / relative).read_bytes())
+            for relative in ("scripts/compare_manuscripts.py", "scripts/audit_reviewer_response.py",
+                             "templates/reviewer-response-ledger.json"):
+                self.assertEqual((skill / relative).read_bytes(), (ROOT / relative).read_bytes())
+            self.assertFalse((skill / "参考skills").exists())
+            self.assertFalse((skill / "dev" / "reference-integration.md").exists())
             replay = subprocess.run(
                 [sys.executable, "-B", str(skill / "dev" / "noc-smoke" / "test_mesh.py")],
                 cwd=self.project, capture_output=True, timeout=45,

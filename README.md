@@ -40,8 +40,37 @@ python3 install.py --host both --project "$HOME/研究项目/我的论文"
 | 数字逻辑验证 | 设计一个带反压的 FIFO，编写 SystemVerilog 和自检测试台，实际运行边界及随机测试，交付验证结果和论文方法段。 |
 | AI 训练与推理 | 在现有服务器上对分类模型做消融，使用相同的数据划分和训练预算。重载检查点做推理，报告多次独立重复的准确率差与耗时。 |
 | 审稿与保真润色 | 检查摘要里的空泛措辞、突兀衔接和技术错误。标出原句，给出最小改法，保留数字、单位和结论强度。 |
+| Word 博士长稿 | 先审计论文的样式、分节、编号和交叉引用，再按学校模板修正指定问题；保留原稿，核对最终 Word 与 PDF。 |
+| LaTeX 与投稿返修 | 检查多文件工程的引用、标签和术语，在工作副本实际构建；逐条回复评阅意见，让回复指向本次真实修改。 |
+| Benchmark 研究 | 围绕 NoC 负载或模型能力设计评测集，说明覆盖、排除项和污染风险，实际执行基线，报告分层结果及失败案例。 |
+| 专家意见逐条回复 | 根据评阅书、原稿和修改稿，按学校表格写博士论文修改说明；逐条保留意见及子问题，对应真实变更和最终位置，未核实的修改明确标出。 |
+| 两稿对照与覆盖核查 | 对照原稿、修改稿和回复信，生成修改对照表，检查有没有漏回、声称已改却缺证据、旧页码或未兑现的上一轮承诺。只有两稿时只做修改说明。 |
 
 文风审查借鉴 Unbot 的编辑方法。它会指出哪句话缺少依据、哪个转折跳过了推理步骤，以及怎样在保留技术含义的前提下改写。“AI 味”意见针对文字本身，不给出作者身份或生成概率判断。仅要求审查时交定位和意见，要求修改时交相应稿件。[自然写作与终检](references/natural-writing-and-review.md)
+
+## 长稿、证据与文档工具
+
+长项目沿用一份记录，连接研究问题、证据、图表、正文主张与返修意见。文件或依赖改变后，旧结论和验收需要重新核对。短段落润色保持轻量；判断文风时也保护否定、条件、比较对象与结论强度，既不无据增强，也不无据弱化。
+
+以下工具按任务使用。文本、DOCX、书目和证据记录的 Python 工具使用标准库；PDF 提取、回复中的 PDF 定位核查与图稿检查需要可选的 PyMuPDF，绘图和排版另需实际可用后端。以技能安装目录中的真实脚本路径运行，输入和产物放在论文项目中。
+
+| 工具 | 用途与边界 |
+| --- | --- |
+| [稿件静态审计](scripts/audit_manuscript.py) | 多文件 LaTeX、引用/标签、术语及数值关系疑点；只读扫描，有定位和覆盖说明，不能自动证明语义保真。 |
+| [DOCX 结构审计](scripts/audit_docx.py) | 动态样式继承、段落/表格/文本框、分节、编号、域及修订；Windows/Linux 可用，分页和图中字仍需实际渲染。 |
+| [LaTeX 构建](scripts/build_latex.py) | 探测工具，在新工作副本构建并记录日志、文献失败和未解引用；需要对应引擎与模板。 |
+| [Word 导出](scripts/export_word_pdf.ps1) | Windows 已有 Word 时更新工作副本的域并导出 PDF，可同时交付 DOCX；不改原稿，不把导出成功当版式通过。 |
+| [证据记录与局部补丁](scripts/research_ledger.py) | 记录文件指纹及依赖，识别失效证据和检查；精确补丁先核原稿身份，再写新文件。不会认证论文事实。 |
+| [本地题录导入](scripts/import_bibliography.py) | BibTeX/RIS/JSON 导入，保留来源、重复项与拒绝日志；不会把导入成功当引用已核实。 |
+| [图形导出适配器](scripts/render_diagram.py) | 调用现有 Mermaid/draw.io CLI，保留图源、日志及输出身份；可编辑性、图义和最终尺寸另行检查。 |
+| [两稿提取与比较](scripts/compare_manuscripts.py) | 从 Word、文本/LaTeX 源文件或 PDF 提取带版本身份的文本与评论，生成两稿字面对照；PDF 需要可选 PyMuPDF，Word 修订视图与实际页面另核。 |
+| [逐条回复核查](scripts/audit_reviewer_response.py) | 核登记意见及子问题、回复、证据与定位的对应关系；区分已报告完成、文件证据和未独立核实，不将覆盖率当作问题解决率。 |
+
+操作方式见[文档工作流](references/document-workflows.md)、[证据记录](references/evidence-ledger.md)、[本地题录](references/literature-search.md)和[可选工作流](references/optional-workflows.md)。科研图表按论证需要规划数量与信息密度，检查最终栏宽下的文字、线条、误差含义与读序；不靠统一图数或缩字堆密度。[图稿计划](templates/figure-plan.md)
+
+工程能力整合阶段从五套参考技能吸收工程论证、保真编辑和文档审计等方法，以独立实现接入现有实验流程。逐项去向、已采纳的决策和该阶段验证范围见[整合记录](dev/reference-integration.md)。Typst、答辩演示、外部文献连接器等按需调用已有能力，不宣称本包已经内建全部后端。
+
+专家/审稿回复专项参考了另行核对的 15 个条目。任务可从原始意见、已有回复、两版稿件或部分材料接入；处理决定、实际完成和核验状态分别记录。学校评阅、盲审修改说明、具体抽检回函、期刊返修信和会议短回复各按实际要求组织，不假设存在通用抽检表格。见[专用流程](references/reviewer-response-workflow.md)和[来源与取舍](参考skills/审稿回复调研/README.md)。
 
 ## 可复跑的 NoC 示例
 
@@ -54,9 +83,11 @@ python3 install.py --host both --project "$HOME/研究项目/我的论文"
 
 在这两组负载上，进化策略平均都快于 FIFO，但均未优于等预算随机搜索。归档保留每条轨迹的原始结果、训练评分和配对差值，可随时查证论文中的结论。[研究短文](dev/noc-smoke/article.md) · [逐轨迹数据](dev/noc-smoke/results/paired.csv) · [配对差值图](dev/noc-smoke/paired-search-effects.pdf)
 
-在仓库根目录执行 `python3 -B dev/noc-smoke/test_mesh.py -v`，即可仅用标准库从头复跑仿真、逐字节比对归档 CSV，并检查汇总能否识别不可能的时延记录。开发回归使用 `python3 -B -m unittest discover -s dev -v`。Windows PowerShell 将 `python3` 换为 `py -3`。PDF 图稿检查需要 PyMuPDF，缺少该依赖时对应测试会跳过。[实验与复跑说明](dev/noc-smoke/README.md) · [计算后端验收](dev/compute-execution-validation.md)
+在仓库根目录执行 `python3 -B dev/noc-smoke/test_mesh.py -v`，即可仅用标准库从头复跑仿真、逐字节比对归档 CSV，并检查汇总能否识别不可能的时延记录。开发回归使用 `python3 -B -m unittest discover -s dev -v`。Windows PowerShell 将 `python3` 换为 `py -3`。PDF 提取、定位与图稿检查需要 PyMuPDF，缺少该依赖时对应测试会跳过。[实验与复跑说明](dev/noc-smoke/README.md) · [计算后端验收](dev/compute-execution-validation.md)
 
 ## 项目导航
+
+最近一次[系统审计与提交前复核](dev/systematic-audit-2026-11-18.md)记录了规则冲突、证据与文档工具修复、拟提交快照验证、跨平台回归及尚未验证的范围。
 
 - 技能从 `SKILL.md` 加载相应阶段的规则。`agents/openai.yaml` 提供 Codex 的显示名称和默认提示。[技能入口](SKILL.md)
 - `references/` 收录按任务使用的指南，涵盖工程创新点、科研图表、论文结构与实质修订。[工程论证](references/engineering-argument.md) · [科研图表](references/engineering-figures-tables.md) · [工程论文修订](references/engineering-revision.md)

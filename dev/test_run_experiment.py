@@ -92,6 +92,37 @@ class ExperimentRunnerCLI(unittest.TestCase):
         self.assertEqual((self.cwd / "runs/one/stdout.log").read_bytes().strip(), b"project-tool")
         self.assertEqual(Path(self.record()["executable"]), executable)
 
+    @unittest.skipUnless(os.name == "nt", "PATHEXT is a Windows executable lookup rule")
+    def test_windows_dotted_program_name_uses_pathext(self):
+        tool_dir = self.cwd / "tool bin"
+        tool_dir.mkdir()
+        executable = tool_dir / "tfprint.v1.exe"
+        shutil.copy2(Path(os.environ["SystemRoot"]) / "System32" / "cmd.exe", executable)
+        result = self.run_cli([], ["tfprint.v1", "/d", "/c", "echo dotted-tool"],
+                              env=dict(os.environ, PATH=tool_dir.name, PATHEXT=".COM;.EXE"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(Path(self.record()["executable"]), executable)
+        self.assertEqual((self.cwd / "runs/one/stdout.log").read_bytes().strip(), b"dotted-tool")
+
+    def test_new_parent_symlink_cannot_relabel_old_data_as_fresh_output(self):
+        cache = self.cwd / "cache"
+        cache.mkdir()
+        (cache / "metrics.csv").write_text("old metrics", encoding="utf-8")
+        check = self.cwd / "link-check"
+        try:
+            check.symlink_to(cache, target_is_directory=True)
+        except (OSError, NotImplementedError):
+            self.skipTest("directory symlinks unavailable for this user")
+        check.unlink()
+        script = "from pathlib import Path; Path('output').symlink_to('cache', target_is_directory=True)"
+        result = self.run_cli(["--output", "output/metrics.csv"], [sys.executable, "-c", script])
+        self.assertEqual(result.returncode, 1, result.stderr)
+        record = self.record()
+        self.assertEqual(record["exit_code"], 0)
+        self.assertEqual(record["status"], "failed")
+        self.assertNotIn("sha256", record["outputs"][0])
+        self.assertEqual((cache / "metrics.csv").read_text(encoding="utf-8"), "old metrics")
+
     def test_exit_zero_with_missing_output_is_failed(self):
         result = self.run_cli(["--output", "missing.csv"], [sys.executable, "-c", "pass"])
         self.assertNotEqual(result.returncode, 0)

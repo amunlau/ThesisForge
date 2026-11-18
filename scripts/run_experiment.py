@@ -44,7 +44,7 @@ def resolve_program(cwd, program):
         entries = os.get_exec_path()
         directories = [cwd / (entry.strip('"') if os.name == "nt" else entry) for entry in entries]
     names = [path.name]
-    if os.name == "nt" and not path.suffix:
+    if os.name == "nt":
         extensions = os.environ.get("PATHEXT") or ".COM;.EXE;.BAT;.CMD"
         names.extend(path.name + ext for ext in extensions.split(os.pathsep) if ext)
     for directory in directories:
@@ -132,8 +132,8 @@ def run(cwd, directory, command, inputs, outputs):
             record["errors"].append(f"命令退出码为 {process.returncode}")
         for item, path in zip(record["outputs"], paths):
             try:
-                if path.is_symlink():
-                    raise ValueError(f"预期新输出是符号链接：{path}")
+                if path.is_symlink() or path.resolve() != path:
+                    raise ValueError(f"预期新输出或其父目录指向其他路径：{path}")
                 item.update(fingerprint(path))
             except (OSError, ValueError) as exc:
                 record["errors"].append(str(exc))

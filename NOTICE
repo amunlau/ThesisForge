@@ -6,5 +6,51 @@ original code, skill instructions, documentation, templates and examples.
 Unbot (https://github.com/amunlau/Unbot) informed the editorial workflow for
 natural academic writing and literal-preservation checks. Research guides
 identify their sources where used.
+
+The 2026-11 integration also draws methodological lessons from these projects:
+- bahayonghang/academic-writing-skills (08a7b34a3575cbd7de9cfd442e01e38dfd9719d6)
+  https://github.com/bahayonghang/academic-writing-skills
+- Imbad0202/academic-research-skills (c70feb7ab43265b31988c3ab38e8731d3bca0784)
+  https://github.com/Imbad0202/academic-research-skills
+- HKUSTDial/Supervisor-Skills (4bd3fef393e5ffc891c74309a5ef6c5ad3ad12c8)
+  https://github.com/HKUSTDial/Supervisor-Skills
+- LvvUP/academic-writing-assistant (9f524156a3ed934b4aa7d6be6c0f880fd60214ea)
+  https://github.com/LvvUP/academic-writing-assistant
+- the-shy123456/thesis-docx (df5ad2e8c5e786ecf4fcfd8023b6ed4f789a38dc)
+  https://github.com/the-shy123456/thesis-docx
+ThesisForge's integration tools and instructions were independently written.
+The upstream source snapshots are local review material, excluded from the
+installer and normal Git staging; their original licenses remain in force.
+They are not relicensed by this notice or included as ThesisForge runtime code.
+
 Referenced publications, quotations, third-party software and the font subset
 embedded in the example PDF remain subject to their respective terms.
+
+The reviewer-response extension also consulted these fixed source snapshots
+(methods independently implemented; upstream runtime code was not imported):
+- ChangChrisLiu/academic-writing-audit (77b1029e106faf148739f65eb42fb5261d746c08)
+  https://github.com/ChangChrisLiu/academic-writing-audit
+- scli317/manuscript-revision-and-reviewer-response (34feecfb706dcb8a618091c36d26f06e8725bdb0)
+  https://github.com/scli317/manuscript-revision-and-reviewer-response
+- Kirito14IT/response-skill (1516dd2a58c5783e0881af3507e5d9b8b0ee2479)
+  https://github.com/Kirito14IT/response-skill
+- brycewang-stanford/Awesome-Journal-Skills (932eb23331721b16e967c59f093781be1928b498)
+  https://github.com/brycewang-stanford/Awesome-Journal-Skills
+- Boom5426/Nature-Paper-Skills (00ecc183dddc5aba23462c1d547d250836122962)
+  https://github.com/Boom5426/Nature-Paper-Skills
+- Zeta-Techs/mesa (11c7d6aa57606a78e1a1962816b859efddcd00a3)
+  https://github.com/Zeta-Techs/mesa
+- xy727682/paper-ops (e216ae69323f92884d0586e821379b700c720e70)
+  https://github.com/xy727682/paper-ops
+- Maoxa/academic-workflow-audit-skills (dc648ee085990004d9f518038728f4ca5bdcde30)
+  https://github.com/Maoxa/academic-workflow-audit-skills
+- Marazii/research-co-pilot (f824e6c1a7d243c5b6efa0765f302fc68a7e5ae8)
+  https://github.com/Marazii/research-co-pilot
+- Wuyuhang-TJU/claude-skill-paper-revision (8270fd54724cc1535476239d7fafdbfda37e858b)
+  https://github.com/Wuyuhang-TJU/claude-skill-paper-revision
+- cabbage2000-lab/paper-tutor-skills (07fe169f8cf0e98869b524c8782951843cb20f9c)
+  https://github.com/cabbage2000-lab/paper-tutor-skills
+- gxgeek-n/wenqu-mem (ac8a40c7b6ee6caaaec7051eabeae66d7b3235f1)
+  https://github.com/gxgeek-n/wenqu-mem
+- KalarisLabs/research-agent-skills (a74b0dbe5fa865d73b9f250ba5b0c9f107bd1baa)
+  https://github.com/KalarisLabs/research-agent-skills

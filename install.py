@@ -14,7 +14,7 @@ from uuid import uuid4
 
 SOURCE = Path(__file__).resolve().parent
 NAME = "thesisforge"
-RESOURCE_PATTERNS = ("references/*.md", "templates/*.md", "scripts/*.py")
+RESOURCE_PATTERNS = ("references/*.md", "templates/*.md", "templates/*.json", "scripts/*.py", "scripts/*.ps1")
 
 
 def package_files():

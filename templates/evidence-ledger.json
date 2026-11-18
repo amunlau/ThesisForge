@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "scope": "填写本次研究与实际检查范围；空表不是验收通过",
+  "artifacts": [],
+  "sources": [],
+  "claims": [],
+  "issues": [],
+  "decisions": [],
+  "checks": []
+}
