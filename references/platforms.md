@@ -9,6 +9,8 @@
 
 请在论文项目中打开会话。除表中的显式调用外，两个宿主也可依据技能描述匹配自然语言请求。项目级安装随项目使用，个人安装对相应用户的多个项目可用。云端 Codex 任务从实际检出的仓库读取项目级技能；需要这种用法时，将项目的技能目录一并提交。[Claude Code 技能文档](https://code.claude.com/docs/en/skills) · [OpenAI Skills 文档](https://learn.chatgpt.com/docs/build-skills)
 
+以上本地目录和调用方式于 2026-11-20 对照两家官方技能文档复核。技能更新通常可被宿主发现；未显示时再重开会话，不把重启当作每次更新的硬要求。多个同名副本须核对实际加载路径：Claude Code 的企业/个人/项目技能依次优先，Codex 不合并同名技能，选择器可能同时显示多个条目。个人目录的更新不能替代核对本次所用副本。[Claude 同名技能规则](https://code.claude.com/docs/en/skills#resolve-skills-that-share-a-name) · [Codex 本地加载位置](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
+
 使用 `--host both` 时，安装器先备好两份副本，再写入两个宿主的技能目录。若第二个宿主的替换操作报错，安装器会撤回本次已完成的替换。成功使用 `--update` 后，终端的 `Previous copy` 指向更新前的完整目录，需要找回本地修改时可从中取回相应文件。
 
 ## 在研究项目中运行脚本

@@ -251,6 +251,45 @@ class LatexBuildTests(unittest.TestCase):
         self.assertEqual((self.source / "paper.pdf").read_bytes(), b"%PDF-old")
         self.assertEqual(report["source_changed"], [])
 
+    def test_directory_redirect_is_rejected_without_junction_api(self):
+        linked = self.source / "linked"
+        linked.mkdir()
+        redirected = self.root / "outside"
+        redirected.mkdir()
+        resolve = Path.resolve
+
+        def simulate_redirect(path, *args, **kwargs):
+            return redirected if path == linked else resolve(path, *args, **kwargs)
+
+        with patch.object(Path, "resolve", new=simulate_redirect), \
+                patch.object(Path, "is_junction", return_value=False, create=True), \
+                patch.object(latex, "probe", return_value=self.tools), \
+                patch.object(latex, "run_step") as run:
+            with self.assertRaisesRegex(ValueError, "directory link not copied"):
+                latex.build(self.entry, self.source, self.output)
+        run.assert_not_called()
+        self.assertFalse(self.output.exists())
+        self.assertEqual(self.entry.read_text(encoding="utf-8"), "document source")
+
+    @unittest.skipUnless(sys.platform == "win32", "Windows directory junction")
+    def test_real_junction_cannot_copy_files_outside_project(self):
+        import _winapi
+        target = self.root / "outside"
+        target.mkdir()
+        sentinel = target / "external.txt"
+        sentinel.write_text("outside fixture", encoding="utf-8")
+        linked = self.source / "linked"
+        try:
+            _winapi.CreateJunction(str(target), str(linked))
+        except (AttributeError, OSError) as exc:
+            self.skipTest("directory junction unavailable: " + str(exc))
+        self.addCleanup(linked.rmdir)
+        # Emulate the old fallback while preserving a real directory junction.
+        with patch.object(Path, "is_junction", return_value=False, create=True):
+            with self.assertRaisesRegex(ValueError, "directory link not copied"):
+                latex.snapshot(self.source, self.entry, self.output)
+        self.assertEqual(sentinel.read_text(encoding="utf-8"), "outside fixture")
+
     def test_bibliography_failure_does_not_accept_first_pass_pdf(self):
         def fake(command, cwd, env, timeout, log):
             result = self.fake_engine(command, cwd, env, timeout, log)

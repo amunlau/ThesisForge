@@ -197,6 +197,24 @@ class ReviewerResponseTests(unittest.TestCase):
         self.assertIn("ambiguous_quote", self.codes(result))
         self.assertEqual(result["counts"]["errors"], 0)
 
+    def test_overlapping_quote_occurrences_do_not_bind_manuscript_evidence(self):
+        path = self.put("after", "修改稿.txt", "the the the\n", "after")
+        raw = path.read_bytes()
+        selected = self.case["responses"][0]["evidence"][0]["after"]
+        selected["quote"] = "the the"
+        result = self.run_case()
+        evidence = result["responses"][0]["evidence"][0]
+        self.assertIn("ambiguous_quote", self.codes(result))
+        self.assertEqual(evidence["after"]["literal_matches_in_unit"], 2)
+        self.assertEqual(evidence["after"]["state"], "unverified")
+        self.assertEqual(evidence["literal_evidence_state"], "not_independently_verified")
+        self.assertEqual(path.read_bytes(), raw)
+        selected["quote"] = "the the the"
+        evidence = self.run_case()["responses"][0]["evidence"][0]
+        self.assertEqual(evidence["after"]["state"], "matched_current")
+        self.assertEqual(evidence["literal_evidence_state"], "observed_text_difference")
+        self.assertEqual(path.read_bytes(), raw)
+
     def test_decline_partial_future_and_heuristic_states(self):
         row = self.case["responses"][0]
         row.update(stance="decline", action_status="not_changed", text="维持设计；理由如下。", evidence=[])

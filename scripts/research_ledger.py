@@ -309,9 +309,11 @@ def apply_patch_plan(root, filename, expected, plan, output):
         if not isinstance(change, dict) or set(change) != {"old", "new"}:
             raise ValueError("Each replacement has only old and new fields")
         old, new = change["old"], change["new"]
-        if not isinstance(old, str) or not old or not isinstance(new, str) or text.count(old) != 1:
+        if not isinstance(old, str) or not old or not isinstance(new, str):
             raise ValueError("Each nonempty old fragment must match exactly once in the original")
-        start = text.index(old)
+        start = text.find(old)
+        if start < 0 or text.find(old, start + 1) >= 0:
+            raise ValueError("Each nonempty old fragment must match exactly once in the original")
         spans.append((start, start + len(old), new))
     spans.sort()
     if any(a[1] > b[0] for a, b in zip(spans, spans[1:])):

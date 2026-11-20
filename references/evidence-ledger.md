@@ -71,7 +71,7 @@ python -B <技能目录>/scripts/research_ledger.py --root . check --strict
 python -B <技能目录>/scripts/research_ledger.py --root . apply-patch --file draft.tex --expected-sha256 <准备改文时的SHA256> --plan patch.json --output revised.tex
 ```
 
-每个旧片段在原稿必须唯一、互不重叠；原稿指纹不符就重新对照，不强行套补丁。输出必须是新文件，保留原稿、未改区域、BOM 和原行尾，不可用于 DOCX 字节拼接。新文件写入失败会清理本次创建的残片，但读者不应在命令结束前读取它。工具不判断修订是否保真；应用后仍运行 [字面量检查](../scripts/check_literals.py) 并回读数据归属、公式含义、条件与引用关系。
+每个旧片段在原稿必须唯一（重叠出现也计为多处），各替换范围互不重叠；原稿指纹不符就重新对照，不强行套补丁。输出必须是新文件，保留原稿、未改区域、BOM 和原行尾，不可用于 DOCX 字节拼接。新文件写入失败会清理本次创建的残片，但读者不应在命令结束前读取它。工具不判断修订是否保真；应用后仍运行 [字面量检查](../scripts/check_literals.py) 并回读数据归属、公式含义、条件与引用关系。
 
 ## 记录怎样保持轻量
 

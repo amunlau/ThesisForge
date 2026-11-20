@@ -1,0 +1,444 @@
+{
+  "schema": 1,
+  "phase": "precommit_review",
+  "checked_at": "2026-11-20T04:35:28.930198+00:00",
+  "source_head": "afa54a5a060e5685e7f55c8f636561e45381b8b1",
+  "candidate_tree": "cac0d5e5d7e30c60a1c78084f4ff2a2f27631efb",
+  "tested_candidate_files": 192,
+  "candidate_method": "Independent temporary Git index/tree and archive of tracked plus unignored new files; original index/config/history unchanged.",
+  "original_index_sha256": "59d36e505c13206ef6d1ef9993b1efc085525d66c5e29e39868eedbc36f31383",
+  "original_index_unchanged": true,
+  "platforms": {
+    "windows": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.14.7",
+      "runs": [
+        {
+          "id": "regression",
+          "returncode": 0,
+          "seconds": 29.008,
+          "tests": 254,
+          "skips": [
+            "test_new_parent_symlink_cannot_relabel_old_data_as_fresh_output (test_run_experiment.ExperimentRunnerCLI.test_new_parent_symlink_cannot_relabel_old_data_as_fresh_output) ... skipped 'directory symlinks unavailable for this user'"
+          ],
+          "tail": "\n----------------------------------------------------------------------\nRan 254 tests in 28.633s\n\nOK (skipped=1)",
+          "log_sha256": "222a0ca8d9dc97ee231831ca03f12409414370e7811c936af09cfd18b9a59efd"
+        },
+        {
+          "id": "noc",
+          "returncode": 0,
+          "seconds": 0.839,
+          "tests": 7,
+          "skips": [],
+          "tail": "\n----------------------------------------------------------------------\nRan 7 tests in 0.641s\n\nOK",
+          "log_sha256": "4444e0aefbff29cfb601c48ce21b426f06403af24cc3d1cf57de00095cda5331"
+        }
+      ],
+      "cli_help": [
+        {
+          "script": "audit_docx.py",
+          "returncode": 0
+        },
+        {
+          "script": "audit_manuscript.py",
+          "returncode": 0
+        },
+        {
+          "script": "audit_reviewer_response.py",
+          "returncode": 0
+        },
+        {
+          "script": "build_latex.py",
+          "returncode": 0
+        },
+        {
+          "script": "check_figure_pdf.py",
+          "returncode": 0
+        },
+        {
+          "script": "check_literals.py",
+          "returncode": 0
+        },
+        {
+          "script": "compare_manuscripts.py",
+          "returncode": 0
+        },
+        {
+          "script": "compare_pairs.py",
+          "returncode": 0
+        },
+        {
+          "script": "import_bibliography.py",
+          "returncode": 0
+        },
+        {
+          "script": "probe_environment.py",
+          "returncode": 0
+        },
+        {
+          "script": "render_diagram.py",
+          "returncode": 0
+        },
+        {
+          "script": "research_ledger.py",
+          "returncode": 0
+        },
+        {
+          "script": "run_experiment.py",
+          "returncode": 0
+        },
+        {
+          "script": "run_matrix.py",
+          "returncode": 0
+        }
+      ]
+    },
+    "linux": {
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.3",
+      "runs": [
+        {
+          "id": "regression",
+          "returncode": 0,
+          "seconds": 76.984,
+          "tests": 254,
+          "skips": [
+            "test_outlined_art_requires_visual_text_review (test_check_figure_pdf.FigureSizeTests.test_outlined_art_requires_visual_text_review) ... skipped 'PyMuPDF is optional'",
+            "test_rotated_cropped_page_uses_visible_objects_only (test_check_figure_pdf.FigureSizeTests.test_rotated_cropped_page_uses_visible_objects_only) ... skipped 'PyMuPDF is optional'",
+            "test_rotated_raster_uses_the_lower_axis_density (test_check_figure_pdf.FigureSizeTests.test_rotated_raster_uses_the_lower_axis_density) ... skipped 'PyMuPDF is optional'",
+            "test_text_at_two_placement_widths (test_check_figure_pdf.FigureSizeTests.test_text_at_two_placement_widths) ... skipped 'PyMuPDF is optional'",
+            "test_vertically_compressed_label_cannot_pass_at_its_nominal_size (test_check_figure_pdf.FigureSizeTests.test_vertically_compressed_label_cannot_pass_at_its_nominal_size) ... skipped 'PyMuPDF is optional'",
+            "test_real_junction_cannot_copy_files_outside_project (test_documents.LatexBuildTests.test_real_junction_cannot_copy_files_outside_project) ... skipped 'Windows directory junction'",
+            "test_timeout_helper_failure_still_kills_root_and_records_partial_cleanup (test_documents.LatexBuildTests.test_timeout_helper_failure_still_kills_root_and_records_partial_cleanup) ... skipped 'Windows process-tree fallback'",
+            "test_pdf_page_label_is_not_inferred_printed_page_and_annotations_are_separate (test_manuscript_comparison.PDFEvidenceTests.test_pdf_page_label_is_not_inferred_printed_page_and_annotations_are_separate) ... skipped 'PyMuPDF is optional'",
+            "test_pdf_pages_and_visual_statement_are_separate (test_reviewer_response.ReviewerResponseTests.test_pdf_pages_and_visual_statement_are_separate) ... skipped 'PyMuPDF optional for real PDF checks'",
+            "test_windows_dotted_program_name_uses_pathext (test_run_experiment.ExperimentRunnerCLI.test_windows_dotted_program_name_uses_pathext) ... skipped 'PATHEXT is a Windows executable lookup rule'"
+          ],
+          "tail": "\n----------------------------------------------------------------------\nRan 254 tests in 76.399s\n\nOK (skipped=10)",
+          "log_sha256": "98608c571a7dc3a1953f76cb69f72b6d1ee9b91d80ff34b77ad44a0b26f84657"
+        },
+        {
+          "id": "noc",
+          "returncode": 0,
+          "seconds": 0.765,
+          "tests": 7,
+          "skips": [],
+          "tail": "\n----------------------------------------------------------------------\nRan 7 tests in 0.602s\n\nOK",
+          "log_sha256": "f275ca5607a5a24612d746d679347847da8ac3a9a1222c477a95e2832804ada9"
+        }
+      ],
+      "cli_help": [
+        {
+          "script": "audit_docx.py",
+          "returncode": 0
+        },
+        {
+          "script": "audit_manuscript.py",
+          "returncode": 0
+        },
+        {
+          "script": "audit_reviewer_response.py",
+          "returncode": 0
+        },
+        {
+          "script": "build_latex.py",
+          "returncode": 0
+        },
+        {
+          "script": "check_figure_pdf.py",
+          "returncode": 0
+        },
+        {
+          "script": "check_literals.py",
+          "returncode": 0
+        },
+        {
+          "script": "compare_manuscripts.py",
+          "returncode": 0
+        },
+        {
+          "script": "compare_pairs.py",
+          "returncode": 0
+        },
+        {
+          "script": "import_bibliography.py",
+          "returncode": 0
+        },
+        {
+          "script": "probe_environment.py",
+          "returncode": 0
+        },
+        {
+          "script": "render_diagram.py",
+          "returncode": 0
+        },
+        {
+          "script": "research_ledger.py",
+          "returncode": 0
+        },
+        {
+          "script": "run_experiment.py",
+          "returncode": 0
+        },
+        {
+          "script": "run_matrix.py",
+          "returncode": 0
+        }
+      ]
+    }
+  },
+  "initial_windows_run": {
+    "reason_for_rerun": "Two cleanup errors (WinError 145) in temporary installation fixtures; shortened temp path, no implementation changes.",
+    "regression": {
+      "id": "regression",
+      "returncode": 1,
+      "seconds": 31.0,
+      "tests": 254,
+      "skips": [
+        "test_new_parent_symlink_cannot_relabel_old_data_as_fresh_output (test_run_experiment.ExperimentRunnerCLI.test_new_parent_symlink_cannot_relabel_old_data_as_fresh_output) ... skipped 'directory symlinks unavailable for this user'"
+      ],
+      "tail": "\n----------------------------------------------------------------------\nRan 254 tests in 30.624s\n\nFAILED (errors=2, skipped=1)",
+      "log_sha256": "12aab5eb21812c1726b87d4adcc2e99d29f916904ba24049032fd641ac4a0344"
+    }
+  },
+  "structure": {
+    "candidate_file_count": 192,
+    "runtime_files": 94,
+    "runtime_bytes": 976446,
+    "local_links": 1804,
+    "local_markdown_anchors": 29,
+    "missing": [],
+    "bad_anchors": [],
+    "machine_paths": []
+  },
+  "skill_validation": "Skill is valid!",
+  "python39_ast": {
+    "production_scripts": 15,
+    "scope": "syntax only; no Python 3.9 interpreter run"
+  },
+  "independent_reviews": {
+    "semantic_conflicts": 0,
+    "fix_review_findings": 0,
+    "behavior_artifacts_rechecked": 25,
+    "new_behavior_runs": 0
+  },
+  "publication_links": {
+    "converted": 358,
+    "inline": 322,
+    "reference_definitions": 36,
+    "unique_files_hash_verified": 195,
+    "unique_directories_manifest_verified": 19,
+    "remote_pages_all_rechecked": false
+  },
+  "post_test_changes": [
+    "Completed dev/precommit-review-2026-11-20.md",
+    "Added this receipt"
+  ],
+  "untested": [
+    "Actual Python 3.9 interpreter execution",
+    "New native Word/PPT edits or real TeX rendering",
+    "Revalidation of every historical school/journal/standard source"
+  ],
+  "tested_candidate_sha256_by_path": {
+    "dev/cohesion-evaluation-2026-11-20.md": "b28eee1196fc9c8617f60246d5454357ef3dd2a2c613a20b702a610f0aa15320",
+    "dev/cohesion-forward-results.md": "1f80ec8a491b573c6e5119da7baec7dddf6dbdf23b592d114473b3e75a379f8c",
+    "dev/cohesion-holdout-inputs.json": "8c83f991b1521c05d6df48a4ad3e790ba3d46e53b828cc1aee322eb8c49291b2",
+    "dev/cohesion-regression-inputs.json": "71eae2e4fdc2151da3764fee31e72ad310711647f0a660cc5858211e2502065b",
+    "dev/precommit-review-2026-11-20.md": "2ac047a301d49d5d01c8d2bd49d81e1a82f89c9ca7d903b4b3188d689cf8f692",
+    "参考skills/.gitignore": "677db8a94da330b62693edf3f2e9c2e2434ffb29971f7911d5948b945ae518f2",
+    "参考skills/README.md": "dc690f1dfc237c0325e0e8dd00fd2d652396b9d6f7f6a389fa2b47be945c449f",
+    "参考skills/审稿回复调研/01-05-manifest.json": "245627d63fe628a85de21c99ed25909860e812886b926cd67fabf5183fc5d914",
+    "参考skills/审稿回复调研/01-05-来源与方法.md": "89e5595821a873657364c5c0211cc8422a14403ada9b676ff7c644120f18a89f",
+    "参考skills/审稿回复调研/06-10-manifest.json": "0e84233793280624c16930740243eafae24dd498d0416df9498cb942f4fa6155",
+    "参考skills/审稿回复调研/06-10-来源与方法.md": "6354c08cf92b1bd8f8dc1c7a0f04729cc039d512923ee9b9accfa6d625f71efe",
+    "参考skills/审稿回复调研/11-15-manifest.json": "98415aebf6acc8449e02aa06bc73adc4d740a80f7dd24cba767912bb4322513e",
+    "参考skills/审稿回复调研/11-15-来源与方法.md": "4d8e10e200698d7fed3a9a0f8263b6811702c077977054a19b40112eed9c720e",
+    "参考skills/审稿回复调研/README.md": "35c5822efcc2e874d33455a80678c62fc3c6012d9e3f9210ebcbb6f96d55d9e4",
+    "参考skills/对照分析/00-综合评估与决策清单.md": "508278f8cbeb5062ec3b1c6300597d2882a6922442bdf98885018a9aed789f96",
+    "参考skills/对照分析/01-academic-writing-skills.md": "0757329866a3b1c8f5c63a84a7a1cbf0da63e1df6ddec30fc2de7c2f230faf2a",
+    "参考skills/对照分析/02-academic-research-skills.md": "20877e1c5fd886ec236a37e25d2d8f6db56e16977fbbcf07a4403ba305b935cf",
+    "参考skills/对照分析/03-Supervisor-Skills.md": "47cccab056f97af67c4cd57527545fe097b6477a685c6a11e4773a7d89499656",
+    "参考skills/对照分析/04-academic-writing-assistant.md": "dca84a045c257ca50474876b53b5f876c873914b9df043b9c7a8420c3f81e7f2",
+    "参考skills/对照分析/05-thesis-docx.md": "0c11d66517dde4697acec1d0c87ab4a97acd3a715b5f25ae05caff146d2259f7",
+    "参考skills/对照分析/核查记录.json": "6c8e02db7fce7f112916fc34c09ef757d7678b64b6816a6489d1902dc171a469",
+    "参考skills/来源清单.json": "c4383cce8123c6639f6e6d833e17b7a03055a617c09505115312e1e59c7f90b5",
+    ".gitattributes": "45fcafc598d069e3f48645eec3710b8469898e29912b1634f089b3d15be6a894",
+    ".gitignore": "e62f2c2384b023ee141d64d03d7cbc271b6ee80d52ea3fc863d8f9046aee8f44",
+    "LICENSE": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8",
+    "NOTICE": "b4398b66853c6c8a5e738da4ae2dbfde113f1acb42cd1bd2c19d80deb7397744",
+    "README.md": "ba5ed5027c2957ce81ad1ce56f210f03436eb4abf0f6bee6ef0aebc822643713",
+    "SKILL.md": "0aae5b4a6727213769aea3b9ecf04be5f661cbf9e397ec60ef4bfc96bb821817",
+    "agents/openai.yaml": "f822b4247a1ec56f0117dd0be52e24f5f711e31661b606145879c05b232cd913",
+    "dev/absorption-from-local-skills.md": "30043d6b9fc34b27cd4f51a2736e08164deefbd42b5bd088884f2b0490b0f350",
+    "dev/compute-execution-validation.md": "8c5cb7cdc28231b1ed086fe14ea7f50eaf4a22d5ae382563691be6098c6e4931",
+    "dev/compute-smoke/ai/repeat-metrics.csv": "554649cc67be1b7ad679c9a6ab4a6b47f9a032bd74ef64dd139634746ac254fc",
+    "dev/compute-smoke/ai/repeat-plan.json": "0d30f19443a0ba0acf7b392da211bd2bd892578a7403fae250980f700baec76d",
+    "dev/compute-smoke/ai/repeat-units.csv": "6fcaf3d49c86804a5366040aeb7c59ffb25d58ac3bcaeae22c7d57b43b477e20",
+    "dev/compute-smoke/ai/repeat_fit.py": "700937f964c129d5f5ae1112742b311d3dcc57b9f13e296c7d3c80f416434d42",
+    "dev/compute-smoke/ai/result.json": "553ee8f4b2d6b7cc9b4ce4511b28ec200fb8515e86dac30673e96c751df97f34",
+    "dev/compute-smoke/ai/train_and_reload.py": "0ceb589223375ad394fd2dba4e30894a3d55ff918ee3feeb24b4201b11d31aea",
+    "dev/compute-smoke/fifo/check.py": "e63052e28a5543ca7e43ba8373600e95761462836fc7043764e166d3dc02a36b",
+    "dev/compute-smoke/fifo/fifo.sv": "839c9e77d9a33cd02800ce94b9049d373a6912c1b3b733291e17f8cd4b2c3287",
+    "dev/compute-smoke/fifo/tb.sv": "14f78b3f09f4fb6b5a05120f647198f5ddb3a7c2dce3e368aa0c8fcd57c8b429",
+    "dev/compute-smoke/hdl/check.py": "b6d8a921df104642c56ae821ff34d7ec8626426361a0db0d1f1d534e1dcf6583",
+    "dev/compute-smoke/hdl/dut.sv": "156200312ccde1bddb1627d2b9c2d6a8639d988fed987b07932e45a46d018317",
+    "dev/compute-smoke/hdl/tb.sv": "132fcc9e7ad32cc5b1ec1d1d233be38425567bd96f2cd2061c4fa0dde8ce08d6",
+    "dev/document-smoke/validation.md": "6f86d1e443a4434f0c712b1ab16f51ea4c921809969d06726ae90524bb0caca4",
+    "dev/engineering-research/README.md": "664f6b52c8ca5613ffdb79c7cdec8914001df4d151319481af9e206635e06017",
+    "dev/engineering-research/round1.md": "fd703f3bcef21dbc4adcaa4e40f844f14e8d3d7160157c9f69fcf12f933dab13",
+    "dev/engineering-research/round2.md": "7c770eaa8e9b4d57cf1630108e39d78c4bd893a54561ce29592dfe30c743dc1c",
+    "dev/engineering-research/round3.md": "7b9aab83b545ed8f2434f6033bb2e354b6f8e8ddf925f32e3d79eea88dcb7b1d",
+    "dev/experimental-execution-five-rounds.md": "fe22d4c28dc09c5fdd6fca234727dff4fb24275e17fc0149a924fde5867b4e30",
+    "dev/iteration-log.md": "19077bfaa97dcaa8b65070a238e4216d05f04f54fd9555f0b96384daec158d60",
+    "dev/noc-smoke/README.md": "b2facd5deae5ffc8ae9bdc488b9ad12dbe2f859c657a1bdc8259c291c78155d3",
+    "dev/noc-smoke/analyze.py": "2d701d78939e61a40500dff690264a1747750b4787f194256fc6a44647322919",
+    "dev/noc-smoke/article.md": "0d100a7a680b597a4ba3c31edc805ed88d0a12f515836a8fb3a30c7abe6d83eb",
+    "dev/noc-smoke/experiment.py": "c826057cc8e973dc045314b0c5c188cd0ffe7fe6d680c42fa33981f0827dffed",
+    "dev/noc-smoke/mesh.py": "4cf73ff962821529356b0a218d136ea23d1a61441c24c66468aa511389766390",
+    "dev/noc-smoke/paired-search-effects.pdf": "9ad78e51abd7fd8cf4c1e9db425df2129dca6280c06fd0fabcb0b8ad5b43cf97",
+    "dev/noc-smoke/paired-search-effects.png": "5eec0d4699b1ad2179c81e7d123380d25c8020e252cac25b0efe49fbc9efeeee",
+    "dev/noc-smoke/plot_search_effects.py": "30f3ec11ac84544822eb605e73910f876fa3f33cad9a9a4b3ab67bee25762435",
+    "dev/noc-smoke/results/.gitattributes": "1c003fc7482424900e809c59ffe28467f7f03a0b5ec831f07b53ef4fadf7e087",
+    "dev/noc-smoke/results/paired.csv": "134ff907c4522a70133f85c0c95b620938fb0281d3316e2a002b9708126ad0bf",
+    "dev/noc-smoke/results/search.csv": "7fa4b366f40f5ff3d6a3b9eb8531f6a17a7989df4f1403ccbb785e78aec630c7",
+    "dev/noc-smoke/results/summary.csv": "b26f73964ee847bcc97b58e54978d757ea54b317209d704f812d3976867375bd",
+    "dev/noc-smoke/test_mesh.py": "e52f8ac1c9e525019125750a79005356c1dcf72e579cf51d8dd3f628ca57fcfb",
+    "dev/precommit-validation.json": "a4bd7bd353b1dd27e79fba3530c94c216689ac8e1c7fe36c06cb74d64ba0f056",
+    "dev/reference-integration-items.md": "4653bc839d349bdcc74ea8ef8f132631f60e4b5773adbd55236484c98a013e74",
+    "dev/reference-integration-validation.json": "2c69f22daf4f4ee354789269a6043e7bb81f40b26a64f7c76a3f593e29eefc7a",
+    "dev/reference-integration.md": "02eecd4d72af1018ec051aa0cc32f297651f3e391bca2b275fcec5816b6b8ad7",
+    "dev/reviewer-response-integration.md": "9723ead98b0b518dd000e8ed36f1e75c708247d62f93241526ec49ce91383e1d",
+    "dev/reviewer-response-validation.json": "c62cbf3926a3d65d90c2f42fa3da0d4d000ef83d67ebe8352d3738b95e3d5049",
+    "dev/round1-research.md": "ba529179f82583b1306267f7033949fafb1d3e7c83405fcc6f38fbbeb5348a38",
+    "dev/round10-research.md": "023fd4b15490ec151b681c82e1ee9ab643945db70c2619458031c5d734ab2260",
+    "dev/round11-research.md": "8824b744f930f58cdaddd75161c58b8fa101f429953b59120511188251b35ced",
+    "dev/round12-research.md": "8c8b242568b9263bc2120d3852746538b1739c024cd2d54b03f2b069d03076d7",
+    "dev/round13-research.md": "9d063d13ab31ed13bd55752e9df8fb02e2e1b91d4069b232bc50c23fb5f85f2e",
+    "dev/round14-research.md": "db139964ba0ad98e99b491f194c9b9daf735f692d13d6a2f7fdf76ccc554d858",
+    "dev/round2-research.md": "d0f0b80a410772cde2990f39d671ea75d17a02faf57a016949e6011fd690b55e",
+    "dev/round3-research.md": "10bf989999b21463896e42053be8dfbe17313e45323ebe8521160ecc06d42a8b",
+    "dev/round4-research.md": "f3366532999bdf260678294abfbca2cc17e49364295f7831c19bc03118788388",
+    "dev/round5-research.md": "57ce7977e66fc2f5ce01a56808e279b6564d05563cc80566e694b9047ff65fbc",
+    "dev/round6-research.md": "3340405c4120fe6a0056bfa59e94645f8f3d220a94d15299a0d4fb973d0135aa",
+    "dev/round7-research.md": "475e88c7994adbd241205646c652071777a8dc6e49059c32072dafa21b70e900",
+    "dev/round8-research.md": "a872f520f0d5c76491ed588a03c1e0da43334131d47398f66372b4f60639bf90",
+    "dev/round9-research.md": "a69957067384fb0d1d27dfc4072c8869538d9cd9aebcf54584c42f564a21a876",
+    "dev/systematic-audit-2026-11-18.md": "4e1053c6ed615ceaeaf8775a2fa15f5b089852fd6ad208f1ec6380c26c93dd47",
+    "dev/systematic-audit-validation.json": "dec61946030b3c40c71679a117a2d4ceaa4c7953fd7274383d259a774ddfa2e4",
+    "dev/test_bibliography.py": "d32dab6af7a5f7414067fa5d2b303c6bb78927dee421170af9f224b477ecb9e5",
+    "dev/test_check_figure_pdf.py": "358f84d5a7f4a32de97a792b7e4e6dc636aa064eed7b121808d49118c3a649a8",
+    "dev/test_check_literals.py": "82b9098fe180b4d414cd3a0a43ad0c701506a4d033a451cf9a5b44a30608af6f",
+    "dev/test_compare_pairs.py": "c843b52168e35778c78ff333ee8331e0da7d3268ee4b0874970f13ce30a073db",
+    "dev/test_documents.py": "7d01722548fdac1fcced5190aafca2384d1eea977b12beb2073742e309715776",
+    "dev/test_install.py": "2a38feb6bf08f4e959ad218252405299b1fa7ae2b3e564ed6e31b1b707c086d5",
+    "dev/test_manuscript_audit.py": "e3bacb5e7baf522f3e59eb5fa4b169c2b64d676af4554ef90d1de47d9aacbd8c",
+    "dev/test_manuscript_comparison.py": "613c2680d6118870d4a24613a2cec8ae9d17368ad1d64101c3b7182c865ebcc1",
+    "dev/test_probe_environment.py": "83ba50f53d520c5510c2f9d3d0f4fc7d675e45ca8fab214d9e6689dabf81e9fe",
+    "dev/test_render_diagram.py": "bddec10121fe7040c58d4a22f4613b6a5fbabcec2dd6544981e8892b929d4568",
+    "dev/test_research_ledger.py": "c2a1794191b8a638b3a949cd3b392d1edc3b636fd8e069e95ea6a3e03f01f732",
+    "dev/test_reviewer_response.py": "10f8e51a75ebcb6f6bc51d2db94ab907eb4a26f812f657f1bf61ff9c23a29d2e",
+    "dev/test_run_experiment.py": "6249424d5f80a8c25bff55c2a3d1ec9a99bfb0d240cd5613a7497126859b0147",
+    "dev/test_run_matrix.py": "eb13044d521661955f8c1a5699455a9857ae5c51701ba70e35ee08c563e85e16",
+    "dev/unbot-integration-evaluation.md": "5c24e5825effb79961f75ec266381e0d5037dd856c1358ace428f30942fd76ec",
+    "dev/v1-evaluation.md": "42d81cd5b038a6927f3f252e7607d78ced06d5fed8ddf658d953552279b95619",
+    "dev/v10-evaluation.md": "bcd663847e7f53ed55803a9e0095e9bfe2f9a85ada7df67401e5de743140a285",
+    "dev/v11-evaluation.md": "b292adf9ea1c50f6cd0fb2033015ddd691cc84a703ad3d5097cd506f37ab3884",
+    "dev/v12-evaluation.md": "61e5fcec743e70dbcea51e1d9c41d9a83078f8708d6c332903be0ee435882cbc",
+    "dev/v13-evaluation.md": "0c7f4b2b2b88811617e059317a85d0e33a1c6331dc9c33127b8ffa7a44719628",
+    "dev/v14-evaluation.md": "69a8e7a9b5901f5d0bacd6465fadb315e735955f4723235c5e8eaf5b9adfd0a8",
+    "dev/v2-evaluation.md": "c10c2a0afd062e239557bf5734d415bbbdc7ecf1eadfb815ee40ffd13ee78f6e",
+    "dev/v3-evaluation.md": "df0fc7030e9e73a78c74e9d643775c7aa2c15d07d37ca068ccf49728fe90147b",
+    "dev/v4-evaluation.md": "7bcfe81ed466a5821f6758762f8ba55bd00cfcfb33e60f50500cc46ec88678c5",
+    "dev/v5-evaluation.md": "48b3dabd32b1e759620f1998120d1c1dc30f245259af173decd56ed3b219485d",
+    "dev/v6-evaluation.md": "26d08e2e972266dc090a5bfc2d3f1498d5bdbab311b30ce4260d82237c555bfc",
+    "dev/v7-evaluation.md": "d83fe2559d5514764f4961acd103952e333f941bb27101e6b5fb98e706a17d7c",
+    "dev/v8-evaluation.md": "34fb21bebfcb3b6b331b323ebb96bf0bbb8b57a77192377cbfa261a592bc8972",
+    "dev/v9-evaluation.md": "2225bf501a6aef68fe1b17d63ba1fb33a6471d4295f25b5524d46c4fe0c46dde",
+    "install.py": "1b4e0637fdb51b41d3ae63d004a6b6bd9052c7f8f18cbd0d53ab33c214e60129",
+    "references/argument-and-logic.md": "2dfb9c145c9e3535a122b9e225f68f3c6198477550e16ecbbccd6f06a373959c",
+    "references/benchmark-and-synthesis.md": "9bf38d92b970af179b533024a3b1033b9bff9ad5bb953b1ae41e52c73ec04fd1",
+    "references/computational-research.md": "132f4ff622d65698acb54082bbe026da98b7ba87d5a6a0e152271df6ebdf8d76",
+    "references/compute-environment.md": "20e2be92965e1908ef2ba515581f6bc76470d862533087f9956e2d72d1265c18",
+    "references/cyt-173-2019.md": "fc2a00a2a5f268eda960d0b1f53ad428e256bed9f00af5e4b480a76f24b250d2",
+    "references/data-analysis.md": "ea9f067bf04df20eecf02cd83e09af63d7c3576def1aa8a38525ace904fb77c7",
+    "references/dissertation-workflow.md": "17f8feb0c59bacad5a86c7b5051fd39b05f84d3ab2439867ac12278e61f75c11",
+    "references/document-workflows.md": "dabc2404014c96423b1997479872840db6244d2f7154a3a31c6d05742509e1a5",
+    "references/domain-cs-app.md": "89ee3d9b86f375962ca51875ae77141889914295b5732aff119a53697b0f0f7e",
+    "references/elsevier-venue-card.md": "ed6317664b80689bd29cd1306b1596342afc54d55912645f5fd3394177908743",
+    "references/engineering-argument.md": "42c9bdc23e05e4a47ebb0507c29ad6ea1e6a9fec465b3a18ba380e6691009305",
+    "references/engineering-figures-tables.md": "e4fdedb0845fe2c4c3873b1ef71ebf3bea8ccd8f54b258aaf49e7064cbf88302",
+    "references/engineering-revision.md": "ae3ebd111ca48b2b63af19d07f8af582768ba75a840131b6cee1334f6635a5e5",
+    "references/evidence-ledger.md": "445d278672299204861fc603dff3a21568fb43d8e4ca22a5581fef99f80de13f",
+    "references/experiment-design.md": "e8e927dbcd7ccde85d576430d4c5e92c9a00ba37424c2f95431cb9d95d9f3838",
+    "references/experiment-matrix.md": "8a35a7eb6f0cc72875685338372be7fa2f194acd7cc018951b26cf8caa0e6b39",
+    "references/format-and-citations.md": "15a8b661d57e06b28c08c75a19f922563ce86ae80087672bd6c02be422ff12e8",
+    "references/fudan-review-2025.md": "72f91ae5be6efad4bc757778562e8bea6b20b2e625a216cff05ab53d148af581",
+    "references/gbt-6447-2025.md": "d22be2ab49a46251b7b5767accb9457cda09e378d868a42ac181368411aadace",
+    "references/gbt-7713.1-2025.md": "4dcb18245ce0f5c258a63a72a5d6814546f759f58c840d906bde21bb960419bd",
+    "references/gbt-7713.2-2022.md": "7e67f26a660dd83dcf2df309fb461864242b346a4bff5ffeb42b6244cdb28fa7",
+    "references/gbt-7714-2025.md": "6b01ae858eb81cce00582cef579c701dff242067b02b67d0cbe2ae7fd57a3b6c",
+    "references/ieee-style.md": "ab0a0b399608fcbffec6964b5022d37ade9c6d1b8bb00d618bfa2b02990d2f8e",
+    "references/independent-research.md": "be4d93b1ce787f8fc50e059f70d78b55f67ff248222c53e86545c807cc921e4f",
+    "references/intake-and-modes.md": "77f5b81617a4840cd3f70b7cc5b7a4f311564f9dd1f3ae1ac6928d1ec9059b2f",
+    "references/integrity-and-evidence.md": "2a5f4ab81fd447eb7b3bbcd080e3d9d25c324e8097cd442ca1b290d631070b4e",
+    "references/journal-workflow.md": "d00e485c3653d9466e2bf687de42d5c840b73666dd0f18f1d5971cbd0604a843",
+    "references/journals-cn.md": "6f41c757dea7671a21d7b0ffd743f5b556bcb102b7c7b8ae7977ad61ab90f218",
+    "references/literature-search.md": "e7eddbf8c8c23b2c542fcb29878ac04d2e1b4a8eacd0c18d4e5beebb05df808d",
+    "references/moe-professional-doctorate-2024.md": "52c71c4bf992510279681a1b79006daffc86ca86af47735a560408caf204d80c",
+    "references/natural-writing-and-review.md": "e3c318d24e91def1d420b5a0a4153c06139934233aa279db91ed872c6f8edb7a",
+    "references/optional-workflows.md": "aa316a7eb6ac70716c373ae29b1c7e466608ccbbb849fb362c63265614995aef",
+    "references/platforms.md": "8f139cbc2f2cba1dc69237281e8a384e4a1614868cf9d4a92a8c8fa0fa2f9091",
+    "references/review-rubric.md": "82b4b0368b3837b3eb841feada982ef3a2bcc35de784ed98f364faab4c5c5a98",
+    "references/reviewer-response-schema.md": "7e69df142413b4325f6b888b42b4d956fd4711011bbea2f38cb805ef3311a4d8",
+    "references/reviewer-response-workflow.md": "18c34b588866ec7fc8b655b7f0dc1034120a959a0d74043d44b8ed8575667128",
+    "references/revision-and-submission.md": "5716d4d8c26e79771cee1d0cd8a5a340b6c101a8a0537956527d8d13da9d7064",
+    "references/school-overlays.md": "e2d51eda3c51d2469b659b73af388a83486f57fb9fdb1981bb49f1b5776ac4f3",
+    "references/simulation-and-hdl.md": "9957be5183ec695d6953d05926bebc2b7a49bd3e4b6c8502ab5e146c544f6447",
+    "references/topic-and-contribution.md": "426ef87e2c0163fd91b43ac37526dbf37482b16d62f78e0de6c48c7a817daf2a",
+    "references/venues-acm-elsevier.md": "cb935d971ede34b69ccf3ce2ae9ae6cc07693d3cd2805c7dd87074f923afa9f1",
+    "references/venues-ieee-eds-cass.md": "be4030ae3a1b6eb09617a5c3c766d906dbd95abe6475fb85df85c164a0189785",
+    "references/writing-and-polish.md": "49df979c82988123853b227526e99df310ab077887a5e23458bd3fcddde674cd",
+    "scripts/audit_docx.py": "9694c4217c61981beb4062202f1d486902caaec3f9feb9b895985a9fec27e822",
+    "scripts/audit_manuscript.py": "7cbd30755b22178d1de1c0bcd6394f775fc7767094aa49cb960d332594194f36",
+    "scripts/audit_reviewer_response.py": "4de665dc539f63eb4b76be8bd9566bfbacef89972168f9ab3f3b32125db7f72a",
+    "scripts/build_latex.py": "945a593767afacfee28d85924423722b1625f542861c7454173049ecc9e60b2f",
+    "scripts/check_figure_pdf.py": "20d3e084d16f02bec43ddf4493959938a3ada497852ca7bfe5938c550f45c8a3",
+    "scripts/check_literals.py": "9bda2e3919c0e29022de9038a3132c18a12d1dad52238deaf1fb5583855d7014",
+    "scripts/compare_manuscripts.py": "d2180aee32543ac2c813a728f8c47ae65f4b05cecaea4663d6ed68f38220703d",
+    "scripts/compare_pairs.py": "1339f103db4b2bc4b79eab45672594782b8d4bbbe4837cef53cdc387a86abd74",
+    "scripts/export_word_pdf.ps1": "12cf62f9798edad8b3ee2a1edb6c125669d99588e696c0fe265dac13f1c1bb23",
+    "scripts/import_bibliography.py": "42b2f62ff25011551581d25bfc74923b92618342753450032d8a374fd2354daa",
+    "scripts/probe_environment.py": "5e1c67d5b81eb39ca27b28a0e12219ed44bd83397266fd58dba43ede2a28a193",
+    "scripts/render_diagram.py": "2aa94fd6c5d234e9bf4d482951a48c068298e5841c5da8f3aa9f1b64e256dd78",
+    "scripts/research_ledger.py": "d48fd98b5c584d2563e13de28b93cf84ac948a89948c875d003b800cdc360e8a",
+    "scripts/run_experiment.py": "a56f0e00f5c1f2355266958dc364e0f3543275975a8e3bfa5e09111fd57d4698",
+    "scripts/run_matrix.py": "6ed2a1d54345d4b4dd67b5aa28e992b77b9bcbc3a2af8527c5648ef68b0d5403",
+    "templates/benchmark-plan.md": "adb41865fd5eebd6179d705666c2639b13290c8d87d6c5ae5f7342ba6ab5fc20",
+    "templates/citation-examples-7714-2025.md": "97f73aabef1e3f2ab470e3115b310d1c254b594b4350308691f3cd50e331697b",
+    "templates/contribution-card.md": "fa69e7373eaf53f611a4ca19333e37800e86480ada42e5f95f32a0746289a59a",
+    "templates/evidence-ledger.json": "25862f8e9c2b2049761d176d364bba9edde97b1fef0789bd05d3df8bfc7ca09e",
+    "templates/experiment-plan.md": "9eedd99dd84662f1387a98cbea6895a4327b7724c2aa31bac3490c60f57f1c98",
+    "templates/figure-plan.md": "3cdbb6e7770b1fbbca3cdaced7f8f56b94a6f369c7cc134a1bcc3206551f2ea9",
+    "templates/front-matter-checklist.md": "b60ff7d29cfae293376b80793cc5a5665f456284dd3bfa8a38f4d1c778e36f0e",
+    "templates/journal-outline.md": "8dc022222dc518b808eb39c3525fea0b25cd241848edd63c0bcc4ba61e14e5b1",
+    "templates/keywords-checklist.md": "76856bd1ce051fda286877a47d26369b2c1e091df4e8ca602ffeed680f2c4580",
+    "templates/project-record.md": "38f5f32e5fb004da67eb477f98d697a07d06538a93f34f269275d7df345f513b",
+    "templates/review-checklist.md": "417d0f570dd33711efe1404630741aa72025596a69f7e32497910f5aadde9eff",
+    "templates/review-report.md": "aa9c6fda54bd7b695813505e82f8592a4465a1e2a128d62a87b85d88b6ef5df4",
+    "templates/reviewer-response-ledger.json": "46c1eff43ffd1a4d03ff632b5cd5da9d07a353d90cacccfcc8a25d5ccb264b68",
+    "templates/reviewer-response.md": "2b20250b00638f87bd4bc675724490edc5a8e7f13e193cc5b809c13832827549",
+    "templates/revision-comparison.md": "1cd2f4120e736af67b31e8d020feefb3bed34acb72d49621ea76962cd4e72789",
+    "templates/revision-ledger.md": "615f1b42816e0989bd04525b6c3a082de7a49926939705862f4ea9453447fd5c",
+    "templates/rq-matrix.md": "8822520d8a3c3af5576913e861c1de6231d1a768604b1d2f779334a76099327e",
+    "templates/submission-checklist.md": "60af82dbb72ca20c04641c3e3467f70b0d46c4b0822fb30e0af42de7ea4243ac",
+    "templates/thesis-outline.md": "4d64d0e2bf2c6e28a34a2df3e898c75523c60b6cbf5f3ff9efc221964ace98fd"
+  },
+  "final_structure": {
+    "candidate_files": 193,
+    "local_links": 1805,
+    "local_markdown_anchors": 29,
+    "missing": [],
+    "original_index_unchanged": true,
+    "scope": "Final source candidate after report completion; does not claim a new execution of all tests."
+  }
+}

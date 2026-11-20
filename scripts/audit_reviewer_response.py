@@ -108,7 +108,11 @@ def audit_case(case, root):
             return result
         result.update({"channel": unit["channel"], "locator": unit["locator"],
                        "actual_sha256": snapshot["source"]["sha256"]})
-        count = unit["text"].count(quote)
+        count = 0
+        start = unit["text"].find(quote)
+        while start >= 0:
+            count += 1
+            start = unit["text"].find(quote, start + 1)
         result["literal_matches_in_unit"] = count
         if count == 0:
             flag("error", "quote_not_in_unit", owner, doc + ":" + unit_id)

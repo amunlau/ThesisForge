@@ -253,6 +253,21 @@ class ResearchLedgerTests(unittest.TestCase):
                 apply(self.root, "a.md", expected, {"replacements": replacements}, output)
         self.assertFalse((self.root / "new.md").exists())
 
+    def test_patch_rejects_overlapping_occurrences_of_one_fragment(self):
+        source = self.root / "repeated.md"
+        raw = b"the the the"
+        source.write_bytes(raw)
+        digest = hashlib.sha256(raw).hexdigest()
+        with self.assertRaisesRegex(ValueError, "exactly once"):
+            API["apply_patch_plan"](self.root, source.name, digest,
+                                    {"replacements": [{"old": "the the", "new": "X"}]}, "new.md")
+        self.assertEqual(source.read_bytes(), raw)
+        self.assertFalse((self.root / "new.md").exists())
+        API["apply_patch_plan"](self.root, source.name, digest,
+                                {"replacements": [{"old": "the the the", "new": "X"}]}, "new.md")
+        self.assertEqual((self.root / "new.md").read_bytes(), b"X")
+        self.assertEqual(source.read_bytes(), raw)
+
     def test_path_escape_cannot_be_used_as_registered_artifact(self):
         self.record["artifacts"] = [{"id": "X", "kind": "data", "path": "../outside.txt", "sha256": "0" * 64, "bytes": 0}]
         result = self.check()

@@ -105,9 +105,14 @@ def snapshot(root, entry, output):
         keep = []
         for name in dirs:
             path = directory / name
-            if name in SKIP_DIRS or path.resolve() == output:
+            if name in SKIP_DIRS:
                 continue
-            if path.is_symlink() or getattr(path, "is_junction", lambda: False)():
+            resolved = path.resolve()
+            if resolved == output:
+                continue
+            # The root is already resolved. Detect directory redirects without
+            # Path.is_junction(), which is unavailable on Python 3.9-3.11.
+            if path.is_symlink() or resolved != path:
                 raise ValueError(f"Project directory link not copied: {path}")
             keep.append(name)
         dirs[:] = keep
